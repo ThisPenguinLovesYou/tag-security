@@ -150,13 +150,16 @@ When new version of OpenFGA are installed, it might imply running a database mig
 
 ### Goals
 
-* Provide developers a flexible way to implement authorization in their applications.
+* Simplify and standardize authorization processes, making them more accessible and interchangeable across various applications and systems.
 
-* Provide a high performance and scalable authorization service that can be used in any application component.
+* Establish patterns and standards for externalized authorization.
 
-* Allow centralized authorization decisions, decoupling policy enforcement from decision making. Allows different teams to implement authorization using a common framework that can be used in any application component.
+* Create architectural patterns, terminologies, and protocols that enable interoperability among different authorization systems.
 
-* Not to be coupled to any authentication technology. It only requires a way to identify the subject of the authorization (user, application, device, etc).
+* Deliver an authorization service for any application component.
+
+* For a shared environment, enable cetralized autorization decisions and permits diverse teams to implement authorization using a shared framework across various application components.
+
 
 ### Non-Goals
 
