@@ -88,36 +88,23 @@ OpenFGA has an active community, with 500+ Discord members, 40 unique contributo
 
 ### Actors
 
+The actors within the system are the OpenFGA server, Database server, and the CLI/API clients. 
+
 **OpenFGA Server**
 
-The OpenFGA server is responsible for storing and querying relationship tuples and authorization models.
+Handles storage and retrieval of relationship tuples, authorization models.
 
-Given that it's going to be used to know if a user can perform an action on a resource, any potential bug in the OpenFGA server logic can have security implications. 
-
-The server can be configured without authentication, with a shared key, or using the OAuth client credentials flow.
+Smooth operation is critical for proper security.
 
 **Database Server**
 
-The database server stores relationship tuples, authorization models and a changelog. OpenFGA currently supports Postgres and MySQL, and it can be extended to support other databases.
-
-Database credentials can be provided as a parameter to the OpenFGA server, via environment variables or a configuration file.
+Stores the relationship tuples and authorization models, as well as a changelog. Currently support Postgres and MySQL.
 
 **CLI/API Clients**
 
-The CLI/API clients are used to make API requests to the OpenFGA server. This includes functionality such as creating and querying relationship tuples, updating the authorization model and running authorization queries such as checking for access or listing objects a user has access to.
+Make API requests to the OpenFGA server, i.e. creating/querying relationship tuples, updating authorization models, checking for access, or listing objects a user has access to.
 
-They authenticate using any of the mechanisms supported by the server (no authentication, shared key, OAuth client credentials).
-
-If the credentials were compromised, the attacker would be able to perform any action granted to those credentials. This would include: 
-
-* Changing the authorization model.
-* Adding tuples to give the attacker access to a resource.
-* Removing tuples to prevent a user from accessing a resource.
-* Querying authorization data, giving the attacker access to privileged information.
-
-To achieve this the attacker would need to be able to connect directly to the OpenFGA service, which is not recommended to be accessible from outside the services’ internal network.
-
-OpenFGA provides versioned authorization models, and applications should point to a specific version. This implies that even if the attacker updates the authorization model, it should not have any effect unless they can also update the application configuration to make it point to the new version.
+Clients can use either no authentication, shared key, or OAuth client credentials as a method for authentication.
 
 ### Actions
 
