@@ -171,7 +171,9 @@ TBD
 
 ### Security Relevant
 
-TBD
+Applications track and point to specific versions of authorization models
+
+More TBD
 
 ## Project Compliance
 
